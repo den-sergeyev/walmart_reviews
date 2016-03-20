@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
     scrapper = Scrapper.new(product_id, Client.new)
     scrapper.serial_scrape!
 
-    @reviews = scrapper.select{ |review| review =~ text}
+    @reviews = scrapper.select{ |review| review.include?(text)}
   end
 
   # GET /products

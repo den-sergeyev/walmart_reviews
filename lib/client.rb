@@ -19,7 +19,8 @@ class Client
   end
 
   def parse_json(json)
-    ActiveSupport::JSON.decode(json).symbolize_keys
+    response = ActiveSupport::JSON.decode(json).symbolize_keys
+    response[:reviewsHtml]
     rescue ActiveSupport::JSON.parse_error => e
       Rails.logger.warn("Attempted to decode invalid JSON: #{e.inspect}")
   end
