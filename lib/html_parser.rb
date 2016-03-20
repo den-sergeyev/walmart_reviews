@@ -1,5 +1,5 @@
 module HtmlParser
-  FALLBACK_REVIEWS_NUMBER = 100500
+  FALLBACK_REVIEWS_NUMBER = 100
 
   def find_review_comments(text)
     #<p class=\"js-customer-review-text\" data-max-height=\"110\">I love this cor

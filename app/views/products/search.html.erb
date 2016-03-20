@@ -1,8 +1,12 @@
-<% @reviews.each_with_index do |review, index| %>
-  <p>
-  <b><%= index + 1 %></b>
-  <%= review.inspect %><br/>
-  </p>
-<% end %>
-
 <%= link_to 'New search', root_path %>
+
+<% if @reviews.present? %>
+  <% @reviews.each_with_index do |review, index| %>
+  <p>
+    <b><%= index + 1 %></b>
+    <%= review.inspect %><br/>
+  </p>
+  <% end %>
+<% else %>
+  <p><b>No matches found</b></p>
+<% end %>
