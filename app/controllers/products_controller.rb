@@ -2,6 +2,8 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def search
+    product_id, text = params[:id], params[:text]
+    @reviews = Scrapper.new(product_id, Client.new).select{ |review| review =~ text}
   end
 
   # GET /products
