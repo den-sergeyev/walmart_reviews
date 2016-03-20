@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => 'products#new_search'
   resources :reviews
   resources :products do
     collection do

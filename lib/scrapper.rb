@@ -1,3 +1,4 @@
+require 'html_parser'
 class Scrapper
   include Enumerable
   include HtmlParser
@@ -20,6 +21,7 @@ class Scrapper
 
   def params_array
     first_page_text = @client.get(@item_id, {limit: 10, page: 1})
+    p first_page_text
     total_number = find_review_count(first_page_text)
     full_pages, reminder = total_number.divmod(10)
 
@@ -28,7 +30,8 @@ class Scrapper
       params = {limit: 10, page: page + 1}
     end
 
-    params << {limit: 10, full_pages + 1} if reminder > 0
+    params << {limit: 10, page: full_pages + 1} if reminder > 0
+    p params
     params
   end
 end

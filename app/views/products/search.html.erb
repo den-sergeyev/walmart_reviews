@@ -1,11 +1,5 @@
-<%= form_tag search_products_path, :method => :get, :remote => true do %>
-  <%= label_tag 'id', 'Product id' %>
-  <%= text_field_tag :external_id %>
-  <%= label_tag 'text', 'Text' %>
-  <%= text_field_tag :text %>
-  <%= submit_tag 'Search' %>
+<% @reviews.each do |review| %>
+  <%= review.inspect %>
 <% end %>
 
-<%#<div id="results">%>
-    <%#<%= render :partial => 'results' %>%>
-  <%#</div>%>
+<%= link_to 'New search', root_path %>
